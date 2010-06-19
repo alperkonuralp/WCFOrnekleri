@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OnlineSupportServiceLibrary.Entities;
+using System.ServiceModel;
 
 namespace OnlineSupportServiceLibrary
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class OnlineSupportService :
         IOnlineSupportService
     {
@@ -173,7 +175,8 @@ namespace OnlineSupportServiceLibrary
                     .ToArray();
         }
 
-        public ChatData[] OperatorGetMessages(Guid operatorID, DateTime lastOperationTime)
+        public ChatData[] OperatorGetMessages(
+            Guid operatorID, DateTime lastOperationTime)
         {
             var ope =
                 _operators.FirstOrDefault(

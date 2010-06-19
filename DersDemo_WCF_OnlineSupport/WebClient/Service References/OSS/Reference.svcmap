@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="79cd48b3-91b5-4bf5-9bc2-ada51c3f9292" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8180/oss/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="a0f4eefd-a89a-4933-9710-d9ba51565847" SourceId="1" SourceUrl="http://localhost:8180/oss/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="33a58d3d-4abf-496b-bb45-120237237f60" SourceId="1" SourceUrl="http://localhost:8180/oss/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="10c8b32e-355e-425b-8de5-8a8aea827f2d" SourceId="1" SourceUrl="http://localhost:8180/oss/mex" />
+    <MetadataFile FileName="OnlineSupportServiceLibrary.Entities.xsd" MetadataType="Schema" ID="67437178-07ff-4daa-8c37-cbac4a964b5c" SourceId="1" SourceUrl="http://localhost:8180/oss/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
