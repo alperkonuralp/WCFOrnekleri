@@ -48,6 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackList.cs" />
     <Compile Include="Entities\ChatData.cs" />
     <Compile Include="Entities\ClientData.cs" />
     <Compile Include="Entities\OperatorData.cs" />

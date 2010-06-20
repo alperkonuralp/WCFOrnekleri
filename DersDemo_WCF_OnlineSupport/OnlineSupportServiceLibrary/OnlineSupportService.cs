@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OnlineSupportServiceLibrary.Entities;
 using System.ServiceModel;
+using System.Text.RegularExpressions;
 
 namespace OnlineSupportServiceLibrary
 {
@@ -125,7 +126,8 @@ namespace OnlineSupportServiceLibrary
             return true;
         }
 
-        public bool OperatorSendMessage(Guid operatorID, Guid userID, string message)
+        public bool OperatorSendMessage(
+            Guid operatorID, Guid userID, string message)
         {
             var cli =
                 _clients.FirstOrDefault(
@@ -138,6 +140,8 @@ namespace OnlineSupportServiceLibrary
             {
                 return false;
             }
+
+            message = CheckMessage(message);
 
             var cd = new ChatData()
             {
@@ -159,6 +163,33 @@ namespace OnlineSupportServiceLibrary
             ope._chats.Add(cd);
 
             return true;
+        }
+
+        private BlackList bl = new BlackList();
+        private string CheckMessage(string message)
+        {
+            //StringBuilder sb = new StringBuilder(message);
+            //foreach (var item in bl.liste)
+            //{
+            //    sb.Replace(item, "***");
+            //}
+            //return sb.ToString();
+
+            //foreach (var item in bl.liste)
+            //{
+            //    Regex rx = new Regex(
+            //        "/" + item + "/",
+            //        RegexOptions.Singleline | RegexOptions.IgnoreCase);
+            //    message = rx.Replace(message, "***");
+            //}
+
+            Regex rx =
+                new Regex(
+                    "/(" + string.Join("|", bl.liste.ToArray()) + ")/",
+                    RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+            message = rx.Replace(message, "$1***$3");
+            return message;
         }
 
         public ChatData[] ClientGetMessages(

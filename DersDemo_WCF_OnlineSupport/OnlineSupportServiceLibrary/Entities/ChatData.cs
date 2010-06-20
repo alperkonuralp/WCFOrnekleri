@@ -23,8 +23,11 @@ namespace OnlineSupportServiceLibrary.Entities
         [DataMember(IsRequired = true, Order = 0)]
         public DateTime SendingTime { get; set; }
 
+        [DataMember]
         public Guid SenderID { get; set; }
+        [DataMember]
         public SenderType SenderType { get; set; }
+        [DataMember]
         public Guid RecieverID { get; set; }
     }
 
