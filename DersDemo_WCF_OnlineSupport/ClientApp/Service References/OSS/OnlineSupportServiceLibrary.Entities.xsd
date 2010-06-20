@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OnlineSupportServiceLibrary.Entities" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OnlineSupportServiceLibrary.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfOperatorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OperatorData" nillable="true" type="tns:OperatorData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOperatorData" nillable="true" type="tns:ArrayOfOperatorData" />
+  <xs:complexType name="OperatorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LastOperationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OnlineTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperatorID" type="ser:guid" />
+      <xs:element minOccurs="0" name="OperatorName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperatorData" nillable="true" type="tns:OperatorData" />
+  <xs:complexType name="ArrayOfClientData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientData" nillable="true" type="tns:ClientData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientData" nillable="true" type="tns:ArrayOfClientData" />
+  <xs:complexType name="ClientData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastOperationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OnlineTime" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientData" nillable="true" type="tns:ClientData" />
+  <xs:complexType name="ArrayOfChatData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChatData" nillable="true" type="tns:ChatData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChatData" nillable="true" type="tns:ArrayOfChatData" />
+  <xs:complexType name="ChatData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RecieverID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SenderID" type="ser:guid" />
+      <xs:element minOccurs="0" name="SenderType" type="tns:SenderType" />
+      <xs:element name="SendingTime" type="xs:dateTime" />
+      <xs:element name="RecieverName" nillable="true" type="xs:string" />
+      <xs:element name="SenderName" nillable="true" type="xs:string" />
+      <xs:element name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChatData" nillable="true" type="tns:ChatData" />
+  <xs:simpleType name="SenderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Client" />
+      <xs:enumeration value="Operator" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SenderType" nillable="true" type="tns:SenderType" />
+</xs:schema>
